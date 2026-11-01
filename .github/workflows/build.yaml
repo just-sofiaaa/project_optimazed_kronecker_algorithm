@@ -15,7 +15,7 @@ jobs:
       fail-fast: false    # если одна ОС упала, остальные всё равно соберутся
       matrix:
         include:
-          - os: windows-latest
+          - os: windows-2022      # не windows-latest: Flutter 3.29 не находит новую Visual Studio
             target: windows
           - os: macos-latest
             target: macos

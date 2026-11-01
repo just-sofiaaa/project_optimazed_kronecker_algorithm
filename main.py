@@ -1069,5 +1069,8 @@ def main(page: ft.Page):
 
 
 if __name__ == "__main__":
-    load_examples("examples.json")
-    ft.app(main)
+    load_examples(os.path.join(os.path.dirname(__file__), "examples.json"))
+    if os.getenv("RUN_IN_DOCKER"):
+        ft.app(main, view=ft.AppView.WEB_BROWSER, host="0.0.0.0", port=8550)
+    else:
+        ft.app(main)  # как раньше, окно на компьютере
